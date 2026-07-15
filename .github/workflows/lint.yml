@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
         # This step intall the Linter
       - name: Install Linter
-        run: pip intall ruff
+        run: pip install ruff
         # This step Check the linter files.
       - name: Check the file for linter
         run: ruff check .
