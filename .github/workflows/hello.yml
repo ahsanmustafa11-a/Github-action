@@ -1,22 +1,40 @@
-# Github action file always follow this heairachy 
-#File should be inside folder name ".github/workflows/"
-# create any file inside it like ".github/workflow/hello.yml"
+# =====================================================
+# GitHub Actions Workflow
+# =====================================================
 
-# Always give the name to workflow
+# Workflow files must be stored in:
+# .github/workflows/
+#
+# Example:
+# .github/workflows/hello.yml
+
+# Name of the workflow
 name: Hello
 
-#When workflow  should be run
+# Define when the workflow should run
 on:
- workflow_dispatch:
+  workflow_dispatch:
 
- #Jobs should be inside workflow.It tell the workflow what should be run
- jobs:
+# Jobs define the tasks that the workflow will execute
+jobs:
   say-hello:
-  # creat and ephermal container (create container for this job after completion this will delete.) 
-  run-on: ubuntu-latest
-  steps:
-  - name: say hello to everyone
-    run: echo "Hello Devops"
 
-#Steps all are inside the Jobs.
-#action should be isnside the steps
+    # GitHub creates a fresh (ephemeral) virtual machine
+    # for this job. Once the job completes, the runner is
+    # automatically deleted.
+    runs-on: ubuntu-latest
+
+    # Steps are executed sequentially inside the job
+    steps:
+      - name: Say Hello to Everyone
+        run: echo "Hello DevOps"
+
+# =====================================================
+# Notes
+# =====================================================
+# 1. A workflow contains one or more jobs.
+# 2. A job contains one or more steps.
+# 3. Each step executes a command or an action.
+# 4. GitHub-hosted runners are ephemeral (temporary).
+# 5. The most common runner is:
+#       runs-on: ubuntu-latest
