@@ -1,5 +1,5 @@
 # Github action file always follow this heairachy 
-#File should be inside folder name ".github/workflow/"
+#File should be inside folder name ".github/workflows/"
 # create any file inside it like ".github/workflow/hello.yml"
 
 # Always give the name to workflow
