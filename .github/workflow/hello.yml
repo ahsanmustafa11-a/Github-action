@@ -1,0 +1,22 @@
+# Github action file always follow this heairachy 
+#File should be inside folder name ".github/workflow/"
+# create any file inside it like ".github/workflow/hello.yml"
+
+# Always give the name to workflow
+name: Hello
+
+#When workflow  should be run
+on:
+ workflow_dispatch:
+
+ #Jobs should be inside workflow.It tell the workflow what should be run
+ jobs:
+  say-hello:
+  # creat and ephermal container (create container for this job after completion this will delete.) 
+  run-on: ubuntu-latest
+  steps:
+  - name: say hello to everyone
+    run: echo "Hello Devops"
+
+#Steps all are inside the Jobs.
+#action should be isnside the steps
