@@ -11,18 +11,22 @@ jobs:
         run: echo "Cloning the Code"
 
   build:
+  # Add the Dependencies of pipeline like if code run successfully then next will other wise not run.
+    needs: code
     runs-on: ubuntu-latest
     steps:
       - name: Build using Docker
         run: echo "Building using Docker"
 
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Running Test Cases
         run: echo "Testing the App"
 
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Deploying on the Machine
